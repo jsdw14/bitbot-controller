@@ -1,17 +1,38 @@
-input.onPinPressed(TouchPin.P0, function () {
-    radio.sendValue("drive", 0)
+input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
+    if (back) {
+        radio.sendValue("drive", 8)
+        back = false
+    } else {
+        radio.sendValue("drive", 16)
+        back = true
+    }
 })
 input.onButtonPressed(Button.A, function () {
-    radio.sendValue("drive", 8)
+    if (left) {
+        radio.sendValue("drive", 1)
+        left = false
+    } else {
+        radio.sendValue("drive", 16)
+        left = true
+    }
 })
-input.onPinPressed(TouchPin.P2, function () {
-    radio.sendValue("drive", 2)
+input.onButtonPressed(Button.AB, function () {
+    if (forward) {
+        radio.sendValue("drive", 0)
+        forward = false
+    } else {
+        radio.sendValue("drive", 16)
+        forward = true
+    }
 })
 input.onButtonPressed(Button.B, function () {
-    radio.sendValue("drive", 16)
-})
-input.onPinPressed(TouchPin.P1, function () {
-    radio.sendValue("drive", 1)
+    if (right) {
+        radio.sendValue("drive", 2)
+        right = false
+    } else {
+        radio.sendValue("drive", 16)
+        right = true
+    }
 })
 radio.onReceivedValue(function (name, value) {
     if (name == "drive") {
@@ -32,9 +53,21 @@ radio.onReceivedValue(function (name, value) {
             bitbot.stop(BBStopMode.Brake)
             bitbot.setLedColor(0xFF0000)
         }
+    } else if (name == "sound") {
+        if (value == 1) {
+            music.playSoundEffect(music.builtinSoundEffect(soundExpression.giggle), SoundExpressionPlayMode.InBackground)
+        }
     }
 })
+let back = false
+let forward = false
+let right = false
+let left = false
 basic.showIcon(IconNames.Giraffe)
 radio.setGroup(1)
 bitbot.select_model(BBModel.XL)
 bitbot.ledClear()
+left = true
+right = true
+forward = true
+back = true
