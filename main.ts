@@ -2,6 +2,7 @@ input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
     if (back) {
         radio.sendValue("drive", 8)
         back = false
+        forward = false
     } else {
         radio.sendValue("drive", 16)
         back = true
