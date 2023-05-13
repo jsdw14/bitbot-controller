@@ -61,14 +61,14 @@ radio.onReceivedValue(function (name, value) {
     }
 })
 let back = false
-let forward = false
 let right = false
 let left = false
+let forward = false
 basic.showIcon(IconNames.Giraffe)
 radio.setGroup(1)
 bitbot.select_model(BBModel.XL)
 bitbot.ledClear()
+forward = true
 left = true
 right = true
-forward = true
 back = true
