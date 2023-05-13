@@ -5,7 +5,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "BitBot": "github:4tronix/bitbot#1.5.5"
+        "BitBot": "github:4tronix/bitbot#1.5.5",
+        "pxt-kitronik-game-controller": "github:kitronikltd/pxt-kitronik-game-controller#V0.0.4"
     },
     "files": [
         "main.blocks",

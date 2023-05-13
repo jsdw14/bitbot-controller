@@ -1,14 +1,14 @@
 input.onPinPressed(TouchPin.P0, function () {
     radio.sendValue("drive", 0)
 })
-input.onButtonPressed(Button.A, function () {
+Kitronik_Game_Controller.onButtonPress(Kitronik_Game_Controller.ControllerButtonPins.Up, Kitronik_Game_Controller.ControllerButtonEvents.Click, function () {
     radio.sendValue("drive", 10)
+})
+Kitronik_Game_Controller.onButtonPress(Kitronik_Game_Controller.ControllerButtonPins.Fire2, Kitronik_Game_Controller.ControllerButtonEvents.Click, function () {
+    radio.sendValue("drive", 11)
 })
 input.onPinPressed(TouchPin.P2, function () {
     radio.sendValue("drive", 2)
-})
-input.onButtonPressed(Button.B, function () {
-    radio.sendValue("drive", 11)
 })
 input.onPinPressed(TouchPin.P1, function () {
     radio.sendValue("drive", 1)
@@ -32,7 +32,14 @@ radio.onReceivedValue(function (name, value) {
             bitbot.stop(BBStopMode.Brake)
             bitbot.setLedColor(0xFF0000)
         }
+    } else if (name == "lights") {
+        if (value == 0) {
+            music.playSoundEffect(music.builtinSoundEffect(soundExpression.giggle), SoundExpressionPlayMode.InBackground)
+        }
     }
+})
+Kitronik_Game_Controller.onButtonPress(Kitronik_Game_Controller.ControllerButtonPins.Left, Kitronik_Game_Controller.ControllerButtonEvents.Click, function () {
+    radio.sendValue("lights", 0)
 })
 basic.showIcon(IconNames.Giraffe)
 radio.setGroup(1)
