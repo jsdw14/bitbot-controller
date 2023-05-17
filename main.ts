@@ -1,19 +1,9 @@
-input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
-    if (back) {
-        radio.sendValue("drive", 8)
-        back = false
-        forward = false
-    } else {
-        radio.sendValue("drive", 16)
-        back = true
-    }
-})
 input.onButtonPressed(Button.A, function () {
     if (left) {
         radio.sendValue("drive", 1)
         left = false
     } else {
-        radio.sendValue("drive", 16)
+        radio.sendValue("drive", 1)
         left = true
     }
 })
@@ -22,7 +12,7 @@ input.onButtonPressed(Button.AB, function () {
         radio.sendValue("drive", 0)
         forward = false
     } else {
-        radio.sendValue("drive", 16)
+        radio.sendValue("drive", 0)
         forward = true
     }
 })
@@ -31,20 +21,20 @@ input.onButtonPressed(Button.B, function () {
         radio.sendValue("drive", 2)
         right = false
     } else {
-        radio.sendValue("drive", 16)
+        radio.sendValue("drive", 2)
         right = true
     }
 })
 radio.onReceivedValue(function (name, value) {
     if (name == "drive") {
         if (value == 1) {
-            bitbot.rotate(BBRobotDirection.Left, 40)
+            bitbot.rotatems(BBRobotDirection.Left, 40, 200)
             bitbot.ledRainbow()
         } else if (value == 2) {
-            bitbot.rotate(BBRobotDirection.Right, 40)
+            bitbot.rotatems(BBRobotDirection.Right, 40, 200)
             bitbot.ledRainbow()
         } else if (value == 0) {
-            bitbot.go(BBDirection.Forward, 60)
+            bitbot.goms(BBDirection.Forward, 60, 400)
             bitbot.ledRainbow()
         } else if (value == 8) {
             bitbot.go(BBDirection.Reverse, 60)
@@ -60,7 +50,6 @@ radio.onReceivedValue(function (name, value) {
         }
     }
 })
-let back = false
 let right = false
 let left = false
 let forward = false
@@ -71,4 +60,4 @@ bitbot.ledClear()
 forward = true
 left = true
 right = true
-back = true
+let back = true
