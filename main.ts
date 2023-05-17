@@ -47,6 +47,3 @@ radio.setGroup(1)
 bitbot.select_model(BBModel.XL)
 bitbot.ledClear()
 bitbot.BBBias(BBRobotDirection.Right, 10)
-basic.forever(function () {
-    basic.showNumber(0)
-})
