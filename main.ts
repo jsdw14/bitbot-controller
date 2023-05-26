@@ -75,6 +75,6 @@ basic.showIcon(IconNames.Giraffe)
 radio.setGroup(1)
 bitbot.select_model(BBModel.XL)
 bitbot.ledClear()
-bitbot.BBBias(BBRobotDirection.Right, 10)
 speed = 0
 logo_press = 0
+bitbot.BBBias(BBRobotDirection.Left, 10)
