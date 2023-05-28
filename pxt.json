@@ -6,7 +6,7 @@
         "radio": "*",
         "microphone": "*",
         "BitBot": "github:4tronix/bitbot#1.5.5",
-        "microturtle": "github:microsoft/pxt-microturtle#v0.0.9"
+        "joystickbit": "github:tinkertanker/pxt-joystickbit#v1.0.1"
     },
     "files": [
         "main.blocks",
